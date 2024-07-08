@@ -1,13 +1,15 @@
 "use client"
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import NailDropdown from "./components/nailDropdown";
 import Header from "../../global/header";
 import Footer from "../../global/footer";
+import { Preview } from "../../utils/types";
 
 export default function Page() {
 
     const [currentIndex, setCurrentIndex] = useState<number>();
-    const [prewviewData, setPreviewData]  = useState<any>();
+    const [previewData, setPreviewData] = useState<Preview>();
+    const [fileName, setFileName]  = useState<string>();
 
     const handleCurrentIndex = (id: number) => {
         if (id === currentIndex) {
@@ -17,8 +19,10 @@ export default function Page() {
         }
     };
 
-    const handleSendDataToPreview = (data: any) => {
-        setPreviewData(data);
+    const handleSendDataToPreview = (key: string, data: string) => {
+        previewData [`${key}`] = data;
+        setPreviewData(previewData);
+        setFileName(data);
     };
 
     return (
@@ -27,6 +31,9 @@ export default function Page() {
             <div id="New">
                 <div id="NewCustomizeContainer">
                     <div id="NewModelContainer">
+                        <div id="Preview">
+                            <Preview fileName={fileName} />
+                        </div>
                     </div>
                     <div id="NewCustomizeOptionsContainer">
                         <div id="NewHeaderContainer">
@@ -39,7 +46,7 @@ export default function Page() {
                                     id={1}
                                     index={Number(currentIndex)}
                                     title="Shape & Length"
-                                    options={['square', 'almond', 'coffin', 'stiletto']}
+                                    options={['Square', 'Almond', 'Coffin', 'Stiletto']}
                                     polar={false}
                                     sizeOptions={['short', 'medium', 'large']}
                                     sendClicked={handleCurrentIndex}
@@ -51,7 +58,7 @@ export default function Page() {
                                     id={2}
                                     index={Number(currentIndex)}
                                     title="Base Color"
-                                    options={['white', 'light pink', 'pink', 'red', 'light blue', 'blue', 'light purple', 'purple', 'yellow', 'grey', 'green', 'black']}
+                                    options={['White', 'Pink', 'Salmon', 'Red', 'Azure', 'Blue', 'Violet', 'Purple', 'Yellow', 'Grey', 'Green', 'Black']}
                                     polar={false}
                                     sendClicked={handleCurrentIndex}
                                     sendData={handleSendDataToPreview}

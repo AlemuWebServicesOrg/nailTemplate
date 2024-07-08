@@ -35,7 +35,7 @@ const NailDropdown: React.FC<NailDropdownProps> = ({ id, index, title, options, 
                                         <div id="NailDropdownShapeContainer">
                                             {options.map((name: string) => (
                                                 <div id="NailDropdownShapeOption">
-                                                    <img src={`/customize/icons/${name}.png`} />
+                                                    <img id="NailDropdownShapeImages" src={`/customize/icons/${name}.png`} />
                                                     <p>{name}</p>
                                                 </div>
                                             ))}
@@ -45,6 +45,8 @@ const NailDropdown: React.FC<NailDropdownProps> = ({ id, index, title, options, 
                                             <input id="NailDropdownLengthShortOption" type="radio" />
                                             <label htmlFor="NailDropdownLengthMediumOption">Medium</label>
                                             <input id="NailDropdownLengthMediumOption" type="radio" />
+                                            <label htmlFor="NailDropdownLengthLargeOption">Large</label>
+                                            <input id="NailDropdownLengthLargeOption" type="radio" />
                                         </div>
                                     </div>
                                 )}
@@ -112,7 +114,7 @@ const NailDropdown: React.FC<NailDropdownProps> = ({ id, index, title, options, 
                         display: flex;
                         position: relative;
                         width: 100%;
-                        height: 40%;
+                        height: 20%;
                         justify-content: space-between;
                     }
 
@@ -128,34 +130,18 @@ const NailDropdown: React.FC<NailDropdownProps> = ({ id, index, title, options, 
                         display: flex;
                         position: relative;
                         align-items: center;
+                        margin-top: 20px;
                     }
                   
                     #PolarOptions label {
                         margin-right: 10px;
                         margin-left: 10px;
-                        margin-top: 5px;
-                        margin-bottom: 5px;
-                    }
-
-                    #NailDropdownLengthContainer {
-                        display: flex;
-                        position: relative;
                     }
 
                     #ShapeAndLength {
                         display: flex;
                         align-items: center;
                         flex-direction: column;
-                    }
-
-                    #NailDropdownLengthShortOption {
-                        display: flex;
-                        margin: 0 40px 0 10px;
-                    }
-
-                    #NailDropdownLengthMediumOption {
-                        display: flex;
-                        margin: 0 40px 0 10px;
                     }
 
                     #NailDropdownShapeContainer {
@@ -173,6 +159,34 @@ const NailDropdown: React.FC<NailDropdownProps> = ({ id, index, title, options, 
                         margin: 10px 30px 0 20px;
                     }
 
+                    #NailDropdownShapeImages {
+                        display: flex;
+                        position: relative;
+                        height: 50px;
+                        width: 30px;
+                        border: 1px solid white;
+                        border-radius: 12px;
+                    }
+
+                    #NailDropdownShapeImages:hover {
+                        border: 1px solid black;
+                    }
+
+                    #NailDropdownLengthContainer {
+                        display: flex;
+                        position: relative;
+                    }
+
+                    #NailDropdownLengthShortOption {
+                        display: flex;
+                        margin: 0 40px 0 10px;
+                    }
+
+                    #NailDropdownLengthMediumOption {
+                        display: flex;
+                        margin: 0 40px 0 10px;
+                    }
+
                     #BaseColor {
                         display: flex;
                         height: 100%;
@@ -185,7 +199,7 @@ const NailDropdown: React.FC<NailDropdownProps> = ({ id, index, title, options, 
                         display: flex;
                         align-items: center;
                         flex-direction: row;
-                        margin-bottom: 10px;
+                        margin-bottom: 5px;
                         gap: 15px;
                     }
 
@@ -210,6 +224,11 @@ const NailDropdown: React.FC<NailDropdownProps> = ({ id, index, title, options, 
                     #NailDropdownBaseColor {
                         padding: 15px;
                         border-radius: 50%;
+                        border: 1px solid transparent;
+                    }
+
+                    #NailDropdownBaseColor:hover {
+                        border: 1px solid black;
                     }
 
                     #Size {
@@ -222,6 +241,7 @@ const NailDropdown: React.FC<NailDropdownProps> = ({ id, index, title, options, 
                         display: flex;
                         position: relative;
                         align-items: center;
+                        margin-top: 20px;
                     }
 
                     #NailDropdownSizeContainer label {

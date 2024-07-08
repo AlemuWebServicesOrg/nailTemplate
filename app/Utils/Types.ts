@@ -23,3 +23,11 @@ export interface Faq {
     question: string;
     answer: string;
 };
+
+export interface Preview {
+    "shape": string;
+    "length": string;
+    "color": string;
+    "colorType": string;
+    "size": string;
+};
