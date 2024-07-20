@@ -1,6 +1,6 @@
 import React from "react";
 import { BestSellersData } from "../data/bestSellersData";
-import { Nail } from "../utils/types";
+import { Nail } from "../utils/Types";
 import NailCard from "../components/nailCard";
 
 const BestSellers = () => {

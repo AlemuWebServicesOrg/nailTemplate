@@ -1,5 +1,5 @@
 import React from "react";
-import { Faq } from "../../utils/types";
+import { Faq } from "../../utils/Types";
 import { IoIosArrowDown } from "react-icons/io";
 
 interface FaqCardProps {

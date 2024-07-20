@@ -1,4 +1,4 @@
-import { Shape } from "../utils/types";
+import { Shape } from "../utils/Types";
 
 export const ShapesData: Shape[] = [
     {

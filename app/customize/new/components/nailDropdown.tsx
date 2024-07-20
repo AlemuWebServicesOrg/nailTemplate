@@ -9,7 +9,7 @@ interface NailDropdownProps {
     polar: boolean;
     sizeOptions?: string[];
     sendClicked: (id: number) => void;
-    sendData: (data: string) => void;
+    sendData: (key: string, data: string) => void;
 };
 
 const NailDropdown: React.FC<NailDropdownProps> = ({ id, index, title, options, polar, sendClicked, sendData }) => {
@@ -34,7 +34,7 @@ const NailDropdown: React.FC<NailDropdownProps> = ({ id, index, title, options, 
                                     <div id="ShapeAndLength">
                                         <div id="NailDropdownShapeContainer">
                                             {options.map((name: string) => (
-                                                <div id="NailDropdownShapeOption">
+                                                <div id="NailDropdownShapeOption" onClick={() => sendData("shape", name)}>
                                                     <img id="NailDropdownShapeImages" src={`/customize/icons/${name}.png`} />
                                                     <p>{name}</p>
                                                 </div>
@@ -42,11 +42,9 @@ const NailDropdown: React.FC<NailDropdownProps> = ({ id, index, title, options, 
                                         </div>
                                         <div id="NailDropdownLengthContainer">
                                             <label htmlFor="NailDropdownLengthShortOption">Short</label>
-                                            <input id="NailDropdownLengthShortOption" type="radio" />
+                                            <input id="NailDropdownLengthShortOption" type="radio" onClick={() => sendData("length", "Short")} />
                                             <label htmlFor="NailDropdownLengthMediumOption">Medium</label>
-                                            <input id="NailDropdownLengthMediumOption" type="radio" />
-                                            <label htmlFor="NailDropdownLengthLargeOption">Large</label>
-                                            <input id="NailDropdownLengthLargeOption" type="radio" />
+                                            <input id="NailDropdownLengthMediumOption" type="radio" onClick={() => sendData("length", "Medium")} />
                                         </div>
                                     </div>
                                 )}
@@ -55,13 +53,13 @@ const NailDropdown: React.FC<NailDropdownProps> = ({ id, index, title, options, 
                                     <div id="BaseColor">
                                         <div id="NailDropdownBaseColorTypeContainer">
                                             <label htmlFor="NailDropdownBaseColorSolidOption">Solid</label>
-                                            <input id="NailDropdownBaseColorSolidOption" type="radio" />
+                                            <input id="NailDropdownBaseColorSolidOption" type="radio" onClick={() => sendData("colorType", "Solid")}/>
                                             <label htmlFor="NailDropdownBaseColorGlitterOption">Glitter</label>
-                                            <input id="NailDropdownBaseColorGlitterOption" type="radio" />
+                                            <input id="NailDropdownBaseColorGlitterOption" type="radio" onClick={() => sendData("colorType", "Glitter")} />
                                         </div>
                                         <div id="NailDropdownBaseColorContainer">
                                             {options.map((name: string) => (
-                                                <div id="NailDropdownBaseColorOption">
+                                                <div id="NailDropdownBaseColorOption" onClick={() => sendData("color", name)}>
                                                     <div id="NailDropdownBaseColor" style={{ "backgroundColor": `${name}` }} />
                                                     <p>{name}</p>
                                                 </div>
@@ -74,13 +72,13 @@ const NailDropdown: React.FC<NailDropdownProps> = ({ id, index, title, options, 
                                     <div id="Size">
                                         <div id="NailDropdownSizeContainer">
                                             <label htmlFor="NailDropdownSizeXSmallOption">XSmall</label>
-                                            <input id="NailDropdownSizeXSmallOption" type="radio" />
+                                            <input id="NailDropdownSizeXSmallOption" type="radio" onClick={() => sendData("size", "X-small")} />
                                             <label htmlFor="NailDropdownSizeSmallOption">Small</label>
-                                            <input id="NailDropdownSizeSmallOption" type="radio" />
+                                            <input id="NailDropdownSizeSmallOption" type="radio" onClick={() => sendData("size", "Small")} />
                                             <label htmlFor="NailDropdownSizeMediumOption">Medium</label>
-                                            <input id="NailDropdownSizeMediumOption" type="radio" />
+                                            <input id="NailDropdownSizeMediumOption" type="radio" onClick={() => sendData("size", "Medium")} />
                                             <label htmlFor="NailDropdownSizeLargeOption">Large</label>
-                                            <input id="NailDropdownSizeLargeOption" type="radio" />
+                                            <input id="NailDropdownSizeLargeOption" type="radio" onClick={() => sendData("size", "Large")} />
                                         </div>
                                     </div>
                                 )}

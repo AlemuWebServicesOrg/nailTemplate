@@ -1,4 +1,4 @@
-import { Filter } from "../utils/types";
+import { Filter } from "../utils/Types";
 
 export const ShapeFilterData: Filter[] = [
     {

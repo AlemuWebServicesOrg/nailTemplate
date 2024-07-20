@@ -25,9 +25,8 @@ export interface Faq {
 };
 
 export interface Preview {
-    "shape": string;
-    "length": string;
-    "color": string;
-    "colorType": string;
-    "size": string;
+    ["shape"]: string;
+    ["length"]: string;
+    ["color"]: string;
+    ["colorType"]: string;
 };

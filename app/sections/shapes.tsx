@@ -1,6 +1,6 @@
 import React from "react";
 import { ShapesData } from "../data/shapesData";
-import { Shape } from "../utils/types";
+import { Shape } from "../utils/Types";
 import ShapeCard from "../components/shapeCard";
 
 const Shapes = () => {
