@@ -1,5 +1,5 @@
 import React from "react";
-import { Shape } from "../utils/types";
+import { Shape } from "../utils/Types";
 
 interface ShapeCardProps {
     data: Shape;

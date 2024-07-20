@@ -1,6 +1,6 @@
 import React from "react";
 import { AllNailsData } from "../../data/allNailsData";
-import { Nail } from "../../utils/types";
+import { Nail } from "../../utils/Types";
 import NailCard from "../../components/nailCard";
 
 const ShopAll = () => {

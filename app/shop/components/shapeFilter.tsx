@@ -1,5 +1,5 @@
 import React from "react";
-import { Filter } from "../../utils/types";
+import { Filter } from "../../utils/Types";
 import { ShapeFilterData } from "../../data/shapeFilterData";
 
 interface ShapeFilterProps {

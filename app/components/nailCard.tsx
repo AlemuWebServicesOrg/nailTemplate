@@ -1,5 +1,5 @@
 import React from "react";
-import { Nail } from "../utils/types";
+import { Nail } from "../utils/Types";
 
 interface NailCardProps {
     data: Nail;

@@ -1,7 +1,7 @@
 "use client"
 import React, { useState }  from "react";
 import FaqCard from "./components/faqCard";
-import { Faq } from "../utils/types";
+import { Faq } from "../utils/Types";
 import { FaqData } from "../data/faqData";
 import Header from "../global/header";
 import Footer from "../global/footer";

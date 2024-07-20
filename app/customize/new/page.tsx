@@ -1,15 +1,21 @@
 "use client"
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import NailDropdown from "./components/nailDropdown";
 import Header from "../../global/header";
+import PreviewSection from "./sections/preview";
 import Footer from "../../global/footer";
 import { Preview } from "../../utils/types";
 
 export default function Page() {
 
     const [currentIndex, setCurrentIndex] = useState<number>();
-    const [previewData, setPreviewData] = useState<Preview>();
-    const [fileName, setFileName]  = useState<string>();
+    const [previewData, setPreviewData] = useState<Preview>({
+        "shape": "Almond",
+        "length": "Short",
+        "color": "White",
+        "colorType": "Solid",
+    });
+    const [fileName, setFileName]  = useState<string>("shape-{Almond}-length-{Short}-color-{White}-color-type-{Solid}.webp");
 
     const handleCurrentIndex = (id: number) => {
         if (id === currentIndex) {
@@ -20,9 +26,8 @@ export default function Page() {
     };
 
     const handleSendDataToPreview = (key: string, data: string) => {
-        previewData [`${key}`] = data;
-        setPreviewData(previewData);
-        setFileName(data);
+        setPreviewData({ ...previewData, [key]: data });
+        setFileName(`shape-{${previewData["shape"]}}-length-{${previewData["length"]}}-color-{${previewData["color"]}}-color-type-{${previewData["colorType"]}}.webp`);
     };
 
     return (
@@ -32,13 +37,13 @@ export default function Page() {
                 <div id="NewCustomizeContainer">
                     <div id="NewModelContainer">
                         <div id="Preview">
-                            <Preview fileName={fileName} />
+                            <PreviewSection fileName={fileName} />
                         </div>
                     </div>
                     <div id="NewCustomizeOptionsContainer">
                         <div id="NewHeaderContainer">
                             <h1 id="NewHeader">Design your own Press-On Nails</h1>
-                            <p>$45</p>
+                            <p id="NewHeaderPrice">$45</p>
                         </div>
                         <div id="NewNailDropdownContainer">
                             <div id="NewShapeContainer">
@@ -46,9 +51,9 @@ export default function Page() {
                                     id={1}
                                     index={Number(currentIndex)}
                                     title="Shape & Length"
-                                    options={['Square', 'Almond', 'Coffin', 'Stiletto']}
+                                    options={["Square", "Almond", "Coffin", "Stiletto"]}
                                     polar={false}
-                                    sizeOptions={['short', 'medium', 'large']}
+                                    sizeOptions={["Short", "Medium"]}
                                     sendClicked={handleCurrentIndex}
                                     sendData={handleSendDataToPreview}
                                 />
@@ -58,7 +63,7 @@ export default function Page() {
                                     id={2}
                                     index={Number(currentIndex)}
                                     title="Base Color"
-                                    options={['White', 'Pink', 'Salmon', 'Red', 'Azure', 'Blue', 'Violet', 'Purple', 'Yellow', 'Grey', 'Green', 'Black']}
+                                    options={["White", "Pink", "Salmon", "Red", "Azure", "Blue", "Violet", "Purple", "Yellow", "Grey", "Green", "Black"]}
                                     polar={false}
                                     sendClicked={handleCurrentIndex}
                                     sendData={handleSendDataToPreview}
@@ -89,7 +94,7 @@ export default function Page() {
                                     id={5}
                                     index={Number(currentIndex)}
                                     title="Size"
-                                    options={['x-small', 'small', 'medium', 'large']}
+                                    options={["X-small", "Small", "Medium", "Large"]}
                                     polar={false}
                                     sendClicked={handleCurrentIndex}
                                     sendData={handleSendDataToPreview}
@@ -108,6 +113,8 @@ export default function Page() {
                         display: flex;
                         flex-direction: column;
                         align-items: center;
+                        width: 100vw;
+                        height: 100%;
                         margin-top: 5vh;
                         margin-bottom: 5vh;
                         padding: 120px 0;
@@ -121,12 +128,17 @@ export default function Page() {
                         flex-direction: column;
                         justify-content: center;
                         align-items: center;
-                        margin-top: 2vh;
-                        margin-bottom: 2vh;
+                        background-color: #f8f7f7;
                     }
 
                     #NewHeader {
+                        margin-top: 2vh;
+                        margin-bottom: 2vh;
                         font-size: 25px;
+                    }
+
+                    #NewHeaderPrice {
+                        margin-bottom: 2vh;
                     }
 
                     #NewNailDropdownContainer {
@@ -135,7 +147,7 @@ export default function Page() {
                         width: 100%;
                         height: 100%;
                         flex-direction: column;
-                        background-color: #f0f0f0;
+                        background-color: #f8f7f7;
                         overflow-y: scroll;
                     }
 
@@ -151,7 +163,6 @@ export default function Page() {
                         position: relative;
                         width: 70%;
                         height: 70vh;
-                        padding: 10px 100px;
                     }
 
                     #NewCustomizeOptionsContainer {
@@ -163,29 +174,9 @@ export default function Page() {
                         align-items: center;
                     }
 
-                    #NewShapeContainer {
+                    #NewShapeContainer, #NewColorContainer, #NewImagesContainer, #NewCharmsContainer, #NewSizeConatiner, #NewCartContainer {
                         width: 100%;
                         
-                    }
-                    
-                    #NewColorContainer {
-                        width: 100%;
-                    }
-
-                    #NewImagesContainer {
-                        width: 100%;
-                    }
-
-                    #NewCharmsContainer {
-                        width: 100%;
-                    }
-
-                    #NewSizeConatiner {
-                        width: 100%;
-                    }
-
-                    #NewCartContainer {
-                        width: 100%;
                     }
 
                     #NewCartButton {
